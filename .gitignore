@@ -1,0 +1,9 @@
+# 运行数据（含账号凭据快照，严禁提交）
+config.json
+state.json
+watch.log
+launchd.log
+accounts/
+backups/
+*.tmp
+__pycache__/
