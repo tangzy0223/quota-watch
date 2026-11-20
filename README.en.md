@@ -65,6 +65,8 @@ watch    one check cycle (launchd calls this every 30s)
 
 `config.json` keys: `threshold_pct` (80), `confirmations` (2), `cooldown_s` (600), `restart_zcode` (false), `cdp_reload` (true).
 
+Config changes take effect on the **next check cycle (≤ 30s) — no restart needed**; the daemon re-reads the config every cycle, and pending debounce counters reset automatically under the new threshold.
+
 ## Compatibility & known fragilities
 
 The tool relies on four **undocumented** client behaviors; a client update may break any layer. Run `probe` to locate a breakage (probe failing = data layer; probe OK but switching ineffective = behavior layer): per-request credential re-read, CDP 9229 renderer reload, monitor endpoint `data.limits[]` shape, `enc:v2` keychain envelope format. See [README.md](README.md) for the full table with failure modes and fallbacks.
